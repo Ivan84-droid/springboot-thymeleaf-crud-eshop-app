@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eshop Tshirt</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Eshop Tshirt</h1>
+    <hr>
+    <h2>Update Tshirt</h2>
+
+    <form action="#" method="POST" th:action="@{/saveTshirt}"
+          th:object="${tshirt}">
+
+        <!-- Add hidden form field to handle update -->
+        <input th:field="*{id}" type="hidden"/>
+
+        <input class="form-control mb-4 col-4" th:field="*{brand}" type="text">
+
+        <input class="form-control mb-4 col-4" th:field="*{color}" type="text">
+
+        <input class="form-control mb-4 col-4" th:field="*{material}" type="text">
+
+        <input class="form-control mb-4 col-4" th:field="*{size}" type="text">
+
+        <input class="form-control mb-4 col-4" th:field="*{price}" type="text">
+
+        <input class="form-control mb-4 col-4" th:field="*{quantity}" type="text">
+
+
+        <button class="btn btn-info col-2" type="submit"> Update Tshirt</button>
+
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to Tshirt List</a>
+</div>
+</body>
+</html>

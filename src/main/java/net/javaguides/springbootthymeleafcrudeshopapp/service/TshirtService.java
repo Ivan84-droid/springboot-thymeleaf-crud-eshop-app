@@ -7,8 +7,7 @@ import java.util.List;
 public interface TshirtService {
     List<Tshirt> getAllTshirts();
     void saveTshirt(Tshirt tshirt);
-
-    void deleteTshirtById (Long id);
+    Tshirt getTshirtById(long id);
 
     void deleteTshirtById(long id);
 }

@@ -1,5 +1,4 @@
 package net.javaguides.springbootthymeleafcrudeshopapp.controller;
-
 import net.javaguides.springbootthymeleafcrudeshopapp.model.Tshirt;
 import net.javaguides.springbootthymeleafcrudeshopapp.service.TshirtService;
 import net.javaguides.springbootthymeleafcrudeshopapp.service.TshirtServiceImpl;
@@ -37,10 +36,18 @@ import org.springframework.web.bind.annotation.PostMapping;
         return "redirect:/";
     }
 
-    @GetMapping("/deleteTshirt/{id}")
-    public String deleteTshirt(@PathVariable(value = "id") long id) {
-        this.tshirtService.deleteTshirtById(id);
-        return "redirect:/";
+    @GetMapping("/showFormForUpdate/{id}")
+    public String showFormForUpdate(@PathVariable(value = "id") long userid, Model model) {
+        Tshirt tshirt = tshirtService.getTshirtById(userid);
+        model.addAttribute("tshirt", tshirt);
+        return "update_tshirt";
+
     }
-}
+        @GetMapping("/deleteTshirt/{id}")
+        public String deleteTshirt ( @PathVariable(value = "id") long id){
+            this.tshirtService.deleteTshirtById(id);
+            return "redirect:/";
+        }
+    }
+
 
