@@ -14,12 +14,16 @@ import java.util.List;
             private OrderRepozitory orderRepozitory;
 
         @Override
-        public List<Order> getAllOrders(){
-            return orderRepozitory.findAll();
+        public List<Order> getAllOrders(){return orderRepozitory.findAll();
         }
         @Override
-        public void saveOrder (Order order){
-            orderRepozitory.save(order);
+        public void saveOrder (Order order){orderRepozitory.save(order);
         }
+
+    @Override
+    public void deleteOrderById(long id) {
+
     }
+
+}
 

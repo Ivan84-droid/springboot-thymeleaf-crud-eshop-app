@@ -5,41 +5,43 @@
     <title>Eshop Tshirt </title>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/journal/bootstrap.min.css" integrity="sha384-QDSPDoVOoSWz2ypaRUidLmLYl4RyoBWI44iA5agn6jHegBxZkNqgm2eHb6yZ5bYs" crossorigin="anonymous">
-
     <script>
-    function openPopup(id){
-        let confirmAction = confirm("Are you sure to delete this tshirt?");
-        if (confirmAction) {
-          window.location = '/deleteTshirt/'+id;
+        function openPopup(id){
+            let confirmAction = confirm("Are you sure to delete this tshirt?");
+            if (confirmAction) {
+              window.location = '/deleteTshirt/'+id;
+            }
         }
-    }
-</script>
+    </script>
+
 </head>
 <body>
 <div class="container my-2">
-    <h1>Tshirt eshop</h1>
+    <h1>Order List</h1>
     <a th:href="@{/showNewTshirtForm}" class="btn btn-primary btn-sm mb-3"> Add Tshirt </a>
     <a th:href="@{/showNewOrderForm}" class="btn btn-primary btn-sm mb-3"> Create Order </a>
     <table border="1" class="table table-striped table-responsive-md">
         <thead>
         <tr>
-            <th>Tshirt brand </th>
-            <th>Tshirt color </th>
-            <th>Tshirt material </th>
-            <th>Tshirt price </th>
-            <th>Tshirt size </th>
+            <th>Tshirt Brand</th>
+            <th>Tshirt Color</th>
+            <th>Tshirt Material</th>
+            <th>Tshirt Size</th>
+            <th>Tshirt Price</th>
+            <th>Tshirt Quantity</th>
             <th style="width:16.50%"> Actions </th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="tshirt:${listTshirts}">
-            <td th:text="${tshirt.brand}"></td>
-            <td th:text="${tshirt.color}"></td>
-            <td th:text="${tshirt.material}"></td>
-            <td th:text="${tshirt.price}"></td>
-            <td th:text="${tshirt.size}"></td>
-            <td><a th:href="@{/showFormForUpdate/{id}(id=${tshirt.id})}" class="btn btn-primary">Update</a>
-                <a th:attr="onclick=|openPopup('${tshirt.id}')|"class="btn btn-primary">Delete</a>
+        <tr th:each="order:${listOrder}">
+            <td th:text="${order.tshirt.brand}"></td>
+            <td th:text="${order.tshirt.color}"></td>
+            <td th:text="${order.tshirt.material}"></td>
+            <td th:text="${order.tshirt.size}"></td>
+            <td th:text="${order.tshirt.quantity}"></td>
+            <td th:text="${order.customerName}"></td>
+            <td><a th:href="@{/showFormForUpdate/{id}(id=${order.id})}" class="btn btn-primary">Update</a>
+                <a class="btn btn-danger" th:attr="onclick=|openPopup('${order.id}')|">Delete</a>
             </td>
         </tr>
         </tbody>
@@ -47,4 +49,4 @@
 </div>
 
 </body>
-</html>
+</html>>

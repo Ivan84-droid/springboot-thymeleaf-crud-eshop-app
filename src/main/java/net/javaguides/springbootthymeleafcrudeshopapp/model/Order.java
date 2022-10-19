@@ -13,13 +13,21 @@ public class Order {
     @Column(name = "tshirt_brand")
     private String tshirtBrand;
     @Column(name = "tshirt_color")
-    private int tshirtColor;
+    private String tshirtColor;
     @Column(name = "tshirt_material")
-    private int tshirtMaterial;
+    private String tshirtMaterial;
     @Column(name = "tshirt_size")
-    private int tshirtSize;
+    private String tshirtSize;
     @Column(name = "tshirt_quantity")
     private int tshirtQuantity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tshirt_id")
+    private Tshirt tshirt;
+
+    public Order() {
+        this.customerName = customerName;
+    }
 
     public long getId() {
         return id;
@@ -45,27 +53,27 @@ public class Order {
         this.tshirtBrand = tshirtBrand;
     }
 
-    public int getTshirtColor() {
+    public String getTshirtColor() {
         return tshirtColor;
     }
 
-    public void setTshirtColor(int tshirtColor) {
+    public void setTshirtColor(String tshirtColor) {
         this.tshirtColor = tshirtColor;
     }
 
-    public int getTshirtMaterial() {
+    public String getTshirtMaterial() {
         return tshirtMaterial;
     }
 
-    public void setTshirtMaterial(int tshirtMaterial) {
+    public void setTshirtMaterial(String tshirtMaterial) {
         this.tshirtMaterial = tshirtMaterial;
     }
 
-    public int getTshirtSize() {
+    public String getTshirtSize() {
         return tshirtSize;
     }
 
-    public void setTshirtSize(int tshirtSize) {
+    public void setTshirtSize(String tshirtSize) {
         this.tshirtSize = tshirtSize;
     }
 
@@ -75,5 +83,13 @@ public class Order {
 
     public void setTshirtQuantity(int tshirtQuantity) {
         this.tshirtQuantity = tshirtQuantity;
+    }
+
+    public Tshirt getTshirt() {
+        return tshirt;
+    }
+
+    public void setTshirt(Tshirt tshirt) {
+        this.tshirt = tshirt;
     }
 }

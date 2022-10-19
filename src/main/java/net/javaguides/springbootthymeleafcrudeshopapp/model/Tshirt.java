@@ -1,6 +1,7 @@
 package net.javaguides.springbootthymeleafcrudeshopapp.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table (name= "tshirts")
